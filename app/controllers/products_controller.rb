@@ -10,4 +10,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import
+    # Productモデル内のimportメソッドに渡してトップページにリダイレクト
+    Product.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
 end
